@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/test/shippingmethod")
-public class ShippingMethodController {
+public class GeneralTestController {
 
   private static final String welcomemsg = "anjay %s!";
 
