@@ -52,23 +52,23 @@ public class TestApplication {
 
   @EventListener(ApplicationReadyEvent.class)
   public void doSomethingAfterStartup() throws ParseException {
-    /*import shipping methods*/
-    shippingMethodRepository.saveAll(CsvProcessor.processShippingMethodCsv());
+//    /*import shipping methods*/
+//    shippingMethodRepository.saveAll(CsvProcessor.processShippingMethodCsv());
 
-    /*import products*/
-    productRepository.saveAll(CsvProcessor.processProductCsv());
-
-    /*import employee*/
-    employeeRepository.saveAll(CsvProcessor.processEmployeeCsv());
-
+//    /*import products*/
+//    productRepository.saveAll(CsvProcessor.processProductCsv());
+//
+//    /*import employee*/
+//    employeeRepository.saveAll(CsvProcessor.processEmployeeCsv());
+//
     /*import customer*/
     customerRepository.saveAll(CsvProcessor.processCustomerCsv());
-
-    /*import orders*/
-    ordersRepository.saveAll(CsvProcessor.processOrdersCsv());
-
-    /*import order detail*/
-    orderDetailRepository.saveAll(CsvProcessor.processOrderDetailCsv());
+//
+//    /*import orders*/
+//    ordersRepository.saveAll(CsvProcessor.processOrdersCsv());
+//
+//    /*import order detail*/
+//    orderDetailRepository.saveAll(CsvProcessor.processOrderDetailCsv());
 
     System.out.println("Success importing csv !");
   }

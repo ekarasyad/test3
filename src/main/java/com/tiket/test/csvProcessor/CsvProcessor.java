@@ -35,7 +35,7 @@ public class CsvProcessor {
         // use ; as separator
         String[] data = line.split(cvsSplitBy);
         ShippingMethods shippingMethods = new ShippingMethods();
-        shippingMethods.setShippingMethod(data[1]);
+        shippingMethods.setShippingMethod(data[1].replace("\n",""));
         shippingMethodList.add(shippingMethods);
         count++;
       }
@@ -64,10 +64,10 @@ public class CsvProcessor {
         // use ; as separator
         String[] data = line.split(cvsSplitBy);
         Products products = new Products();
-        products.setProductName(data[1]);
-        Number number = format.parse(data[2]);
+        products.setProductName(data[1].replace("\n",""));
+        Number number = format.parse(data[2].replace("\n",""));
         products.setUnitPrice(number.doubleValue());
-        products.setInStock(Integer.parseInt(data[3]));
+        products.setInStock(Integer.parseInt(data[3].replace("\n","")));
         productsList.add(products);
         count++;
       }
@@ -93,10 +93,10 @@ public class CsvProcessor {
         // use ; as separator
         String[] data = line.split(cvsSplitBy);
         Employee employee = new Employee();
-        employee.setFirstName(data[1]);
-        employee.setLastName(data[2]);
-        employee.setTitle(data[3]);
-        employee.setWorkPhone(data[4]);
+        employee.setFirstName(data[1].replace("\n",""));
+        employee.setLastName(data[2].replace("\n",""));
+        employee.setTitle(data[3].replace("\n",""));
+        employee.setWorkPhone(data[4].replace("\n",""));
         employeeList.add(employee);
 
         count++;
@@ -123,22 +123,22 @@ public class CsvProcessor {
         // use ; as separator
         String[] data = line.split(cvsSplitBy);
         Customers customers = new Customers();
-        customers.setCompanyName(data[1]);
-        customers.setFirstName(data[2]);
-        customers.setLastName(data[3]);
-        customers.setBillingAddress(data[4]);
-        customers.setCity(data[5]);
-        customers.setStateOrProvince(data[6]);
-        customers.setZipCode(data[7]);
-        customers.setEmail(data[8]);
-        customers.setCompanyWebsite(data[9]);
-        customers.setPhoneNumber(data[10]);
-        customers.setFaxNumber(data[11]);
-        customers.setShipAddress(data[12]);
-        customers.setShipCity(data[13]);
-        customers.setShipStateOrProvince(data[14]);
-        customers.setShipZipCode(data[15]);
-        customers.setShipPhoneNumber(data[16]);
+        customers.setCompanyName(data[1].replace("\n",""));
+        customers.setFirstName(data[2].replace("\n",""));
+        customers.setLastName(data[3].replace("\n",""));
+        customers.setBillingAddress(data[4].replace("\n",""));
+        customers.setCity(data[5].replace("\n",""));
+        customers.setStateOrProvince(data[6].replace("\n",""));
+        customers.setZipCode(data[7].replace("\n",""));
+        customers.setEmail(data[8].replace("\n",""));
+        customers.setCompanyWebsite(data[9].replace("\n",""));
+        customers.setPhoneNumber(data[10].replace("\n",""));
+        customers.setFaxNumber(data[11].replace("\n",""));
+        customers.setShipAddress(data[12].replace("\n",""));
+        customers.setShipCity(data[13].replace("\n",""));
+        customers.setShipStateOrProvince(data[14].replace("\n",""));
+        customers.setShipZipCode(data[15].replace("\n",""));
+        customers.setShipPhoneNumber(data[16].replace("\n",""));
         customersList.add(customers);
         count++;
       }
@@ -168,17 +168,17 @@ public class CsvProcessor {
         // use ; as separator
         String[] data = line.split(cvsSplitBy);
         Orders orders = new Orders();
-        orders.setCustomers(new Customers(Long.parseLong(data[1])));
-        orders.setEmployee(new Employee(Long.parseLong(data[2])));
-        orders.setOrderDate(simpleDateFormat.parse(data[3]));
-        orders.setPurchaseOrderNumber(data[4]);
-        orders.setShipDate(simpleDateFormat.parse(data[5]));
-        orders.setShippingMethods(new ShippingMethods(Long.parseLong(data[6])));
-        Number freightCharge = format.parse(data[7]);
+        orders.setCustomers(new Customers(Long.parseLong(data[1].replace("\n",""))));
+        orders.setEmployee(new Employee(Long.parseLong(data[2].replace("\n",""))));
+        orders.setOrderDate(simpleDateFormat.parse(data[3].replace("\n","")));
+        orders.setPurchaseOrderNumber(data[4].replace("\n",""));
+        orders.setShipDate(simpleDateFormat.parse(data[5].replace("\n","")));
+        orders.setShippingMethods(new ShippingMethods(Long.parseLong(data[6].replace("\n",""))));
+        Number freightCharge = format.parse(data[7].replace("\n",""));
         orders.setFreightCharge(freightCharge.doubleValue());
-        Number taxes = format.parse(data[8]);
+        Number taxes = format.parse(data[8].replace("\n",""));
         orders.setTaxes(taxes.doubleValue());
-        orders.setPaymentReceived(Integer.parseInt(data[9]));
+        orders.setPaymentReceived(Integer.parseInt(data[9].replace("\n","")));
         orders.setComment(data[10]);
         ordersList.add(orders);
         count++;
@@ -207,12 +207,12 @@ public class CsvProcessor {
         // use ; as separator
         String[] data = line.split(cvsSplitBy);
         OrderDetails orderDetails = new OrderDetails();
-        orderDetails.setOrders(new Orders(Long.parseLong(data[1])));
-        orderDetails.setProducts(new Products(Long.parseLong(data[2])));
-        orderDetails.setQuantity(Integer.parseInt(data[3]));
-        Number unitPrice = format.parse(data[4]);
+        orderDetails.setOrders(new Orders(Long.parseLong(data[1].replace("\n",""))));
+        orderDetails.setProducts(new Products(Long.parseLong(data[2].replace("\n",""))));
+        orderDetails.setQuantity(Integer.parseInt(data[3].replace("\n","")));
+        Number unitPrice = format.parse(data[4].replace("\n",""));
         orderDetails.setUnitPrice(unitPrice.doubleValue());
-        Number discount = format.parse(data[5]);
+        Number discount = format.parse(data[5].replace("\n",""));
         orderDetails.setDiscount(discount.doubleValue());
         orderDetailsList.add(orderDetails);
         count++;
